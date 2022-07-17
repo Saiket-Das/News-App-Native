@@ -14,10 +14,7 @@ export default function NewsScreen() {
     const { news: { articles }
     } = useContext(NewsContext);
 
-    const { activeIndex, setActiveIndex } = useState();
-    console.log(activeIndex)
-
-    console.log(articles);
+    const [activeIndex, setActiveIndex] = useState();
 
     return (
         <View style={styles.carousel}>
