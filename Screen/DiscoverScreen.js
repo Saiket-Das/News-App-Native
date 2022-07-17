@@ -51,12 +51,15 @@ export default function DiscoverScreen() {
                     sources.map((source) => (
                         <TouchableOpacity
                             onPress={() => setSources(source)}
-                            key={source._id}
+                            key={source.id}
                             style={styles.sourceContainer}>
 
-                            <Image source={{ uri: source.pic }}></Image>
+                            <Image source={{ uri: source.pic }}
+                                style={styles.sourceImage}
+                            />
 
-                            <Text style={{ ...styles.subTitle, color: 'white', paddingTop: 15 }}>{source}</Text>
+                            <Text style={{ ...styles.subTitle, color: 'white', paddingTop: 15 }}>{source.name}</Text>
+
                         </TouchableOpacity>
                     ))
                 }
@@ -100,5 +103,24 @@ const styles = StyleSheet.create({
         margin: -5,
         alignItems: 'center',
         justifyContent: 'space-evenly'
-    }
+    },
+
+    sources: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        paddingVertical: 15,
+    },
+    sourceContainer: {
+        height: 150,
+        width: "40%",
+        borderRadius: 10,
+        margin: 15,
+        backgroundColor: "#cc313d",
+    },
+    sourceImage: {
+        height: "100%",
+        borderRadius: 10,
+        resizeMode: "cover",
+    },
 })

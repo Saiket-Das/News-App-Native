@@ -16,7 +16,7 @@ export default function SingleNews({ item, index }) {
                 // transform: [{ scaleY: -1 }],
             }}>
             <Image
-                source={{ url: item.urlToImage }}
+                source={{ uri: item.urlToImage }}
                 style={{ height: '40%', resizeMode: 'cover', width: windowHeight }} />
 
 
