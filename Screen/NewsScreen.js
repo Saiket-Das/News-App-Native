@@ -5,17 +5,18 @@ import Carousel from 'react-native-snap-carousel';
 import SingleNews from '../Components/SingleNews';
 // import { Pagination } from 'react-native-snap-carousel';
 
+const windowHeight = Dimensions.get("window").height;
+
+
 
 export default function NewsScreen() {
 
-    const {
-        news: { articles }
+    const { news: { articles }
     } = useContext(NewsContext);
 
     const { activeIndex, setActiveIndex } = useState();
     console.log(activeIndex)
 
-    const windowHeight = Dimensions.get("window").height;
     console.log(articles);
 
     return (

@@ -22,7 +22,7 @@ const Context = ({ children }) => {
     }, [category]);
 
     return (
-        <NewsContext.Provider value={{ news, index, setIndex, fetchNews }}>{children}
+        <NewsContext.Provider value={{ news, index, setIndex, fetchNews, setcategory }}>{children}
         </NewsContext.Provider>
     )
 }

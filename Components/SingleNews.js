@@ -42,7 +42,7 @@ export default function SingleNews({ item, index }) {
                     <Text> {item.author ? item.author : 'Unknown'}</Text>
                 </Text>
 
-                {/* ------ Author ------ */}
+                {/* ------ Read More URL ------ */}
                 <ImageBackground
                     blurRadius={30}
                     style={styles.footer}
@@ -72,12 +72,18 @@ const styles = StyleSheet.create({
         padding: 15,
         flex: 1,
     },
+
     newsTitle: {
         fontSize: 25,
         fontWeight: "bold",
         paddingBottom: 10,
     },
-    content: { fontSize: 18, paddingBottom: 10 },
+
+    content: {
+        fontSize: 18,
+        paddingBottom: 10
+    },
+
     footer: {
         height: 80,
         width: windowWidth,

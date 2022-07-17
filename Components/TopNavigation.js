@@ -38,8 +38,11 @@ export default function TopNavigation({ index, setIndex }) {
                 :
                 <TouchableOpacity style={styles.left}
                     onPress={() => setIndex(index === 0 ? 1 : 0)}>
-                    <Text style={{ ...styles.text, color: 'black' }}>All News</Text>
-                    <AntDesign name='right' size={24} color='#007FFF'></AntDesign>
+                    <Text style={{ ...styles.text, color: 'black' }}>
+                        All News
+                    </Text>
+                    <AntDesign name='right' size={24} color='#007FFF'>
+                    </AntDesign>
                 </TouchableOpacity>}
 
         </View >
