@@ -13,10 +13,11 @@ export default function NewsScreen() {
     } = useContext(NewsContext);
 
     const { activeIndex, setActiveIndex } = useState();
+    console.log(activeIndex)
 
     const windowHeight = Dimensions.get("window").height;
+    console.log(articles);
 
-    console.log(windowHeight)
     return (
         <View style={styles.carousel}>
             {articles && (
