@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'rea
 import { NewsContext } from '../API/Context';
 import { categories, sources } from '../API/Api'
 import Carousel from 'react-native-snap-carousel';
+import Search from '../Components/Search';
 
 
 
@@ -16,6 +17,7 @@ export default function DiscoverScreen() {
         <View style={styles.discover}>
 
             {/* ------ Search ------ */}
+            <Search></Search>
 
 
             {/* ------ Cetagories ------ */}
@@ -43,22 +45,20 @@ export default function DiscoverScreen() {
             />
 
 
-            {/* Source  */}
-            <Text style={{ ...styles.subTitle, color: 'white', paddingTop: 15 }}>Sources</Text>
+            {/* ------ Source of News------ */}
+            <Text style={{ ...styles.subTitle, color: 'white', paddingTop: 10 }}>Sources</Text>
 
             <View style={styles.sources}>
                 {
                     sources.map((source) => (
                         <TouchableOpacity
-                            onPress={() => setSources(source)}
+                            onPress={() => setSources(source.id)}
                             key={source.id}
                             style={styles.sourceContainer}>
 
                             <Image source={{ uri: source.pic }}
                                 style={styles.sourceImage}
                             />
-
-                            <Text style={{ ...styles.subTitle, color: 'white', paddingTop: 15 }}>{source.name}</Text>
 
                         </TouchableOpacity>
                     ))
@@ -109,8 +109,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
-        paddingVertical: 15,
+        // paddingVertical: ,
     },
+
     sourceContainer: {
         height: 150,
         width: "40%",
@@ -118,6 +119,7 @@ const styles = StyleSheet.create({
         margin: 15,
         backgroundColor: "#cc313d",
     },
+
     sourceImage: {
         height: "100%",
         borderRadius: 10,
