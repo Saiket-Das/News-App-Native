@@ -9,10 +9,7 @@ import TopNavigation from './TopNavigation';
 export default function InshortTabs() {
 
     const layout = useWindowDimensions();
-
-
     const { index, setIndex } = useContext(NewsContext)
-
 
     const [routes] = useState([
         { key: 'first', title: 'Discover' },

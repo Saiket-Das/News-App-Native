@@ -8,7 +8,7 @@ import SingleNews from './SingleNews';
 
 export default function Search() {
 
-    const { news: { articles } } = useContext(NewsContext)
+    const { news: { articles }, darkMode } = useContext(NewsContext)
 
     const [searchResults, setSearchResults] = useState([]);
     const [modalVisible, setModalVisible] = useState(false);
@@ -34,11 +34,11 @@ export default function Search() {
         <View style={{ width: '100%', position: 'relative' }}>
 
             <TextInput style={{
-                ...styles.searchText, backgroundColor: '#999999', color: 'black'
+                ...styles.searchText, backgroundColor: darkMode ? '#999999' : '#D3D3D3', color: 'black'
             }}
                 onChangeText={(text) => handleSearch(text)}
                 placeholder='Search for news'
-                placeholderTextColor={'black'}
+                placeholderTextColor={darkMode ? 'white' : 'black'}
             />
 
 
@@ -52,8 +52,8 @@ export default function Search() {
                         <Text
                             style={{
                                 ...styles.singleResult,
-                                backgroundColor: "black",
-                                color: "white",
+                                backgroundColor: darkMode ? "black" : '#D3D3D3',
+                                color: darkMode ? "white" : 'black',
                             }}
                         >
                             {result.title}
@@ -97,26 +97,27 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         fontSize: 16,
         marginTop: 8,
+        marginHorizontal: 5,
         marginBottom: 15
     },
     searchResults: {
         position: "absolute",
         zIndex: 1,
-        top: 50,
+        top: 60,
     },
 
     singleResult: {
-        borderRadius: 5,
         padding: 10,
         margin: 2,
         shadowColor: "black",
         elevation: 5,
+        borderRadius: 10
     },
 
     modal: {
         position: 'absolute',
         zIndex: 1,
-        right: 3,
-        marginTop: 104,
+        right: 10,
+        marginTop: 110,
     },
 })

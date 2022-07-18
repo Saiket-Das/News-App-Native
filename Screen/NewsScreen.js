@@ -11,13 +11,12 @@ const windowHeight = Dimensions.get("window").height;
 
 export default function NewsScreen() {
 
-    const { news: { articles }
-    } = useContext(NewsContext);
+    const { news: { articles }, darkMode } = useContext(NewsContext);
 
     const [activeIndex, setActiveIndex] = useState();
 
     return (
-        <View style={styles.carousel}>
+        <View style={{ ...styles.carousel, backgroundColor: darkMode ? 'gray' : 'white', }}>
             {articles && (
                 <Carousel
                     // firstItem={articles.length - 1}
@@ -41,7 +40,5 @@ export default function NewsScreen() {
 const styles = StyleSheet.create({
     carousel: {
         flex: 1,
-        backgroundColor: 'gray',
-        // transform: [{ scaleY: - 1 }]
     },
 })

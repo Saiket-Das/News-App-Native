@@ -1,18 +1,19 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useContext } from 'react'
-import { MaterialCommunityIcons, Feather, AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 import { NewsContext } from '../API/Context';
 
 
 
 export default function TopNavigation({ index, setIndex }) {
 
-    const { fetchNews } = useContext(NewsContext);
+    const { fetchNews, darkMode, setDarkMode } = useContext(NewsContext);
 
     return (
         <View style={{ ...styles.container, backgroundColor: '#87ceeb' }}>
             {index === 0 ?
-                <TouchableOpacity style={styles.left}>
+                <TouchableOpacity style={styles.left}
+                    onPress={() => setDarkMode(!darkMode)}>
                     <Text style={{ ...styles.text, color: 'gray' }}>
                         <MaterialCommunityIcons
                             name='theme-light-dark'

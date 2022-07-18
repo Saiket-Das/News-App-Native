@@ -10,6 +10,7 @@ const Context = ({ children }) => {
     const [category, setCategory] = useState('general')
     const [index, setIndex] = useState(1);
     const [sources, setSources] = useState(1);
+    const [darkMode, setDarkMode] = useState(true);
 
 
     const fetchNews = async (reset = category) => {
@@ -37,7 +38,7 @@ const Context = ({ children }) => {
     }, [sources]);
 
     return (
-        <NewsContext.Provider value={{ news, index, setIndex, fetchNews, setCategory, setSources }}>{children}
+        <NewsContext.Provider value={{ news, index, setIndex, fetchNews, setCategory, setSources, darkMode, setDarkMode }}>{children}
         </NewsContext.Provider>
     )
 }

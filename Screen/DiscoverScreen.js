@@ -8,7 +8,7 @@ import Search from '../Components/Search';
 
 
 export default function DiscoverScreen() {
-    const { setCategory, setSources } = useContext(NewsContext);
+    const { setCategory, darkMode, setSources } = useContext(NewsContext);
 
     const windowWidth = Dimensions.get("window").width;
     const SLIDE_WIDTH = Math.round(windowWidth / 3.5);
@@ -21,13 +21,14 @@ export default function DiscoverScreen() {
 
 
             {/* ------ Cetagories ------ */}
-            <Text style={{ ...styles.subTitle, color: 'white' }}>Categories</Text>
+            <Text style={{ ...styles.subTitle, color: darkMode ? 'white' : 'black' }}>Categories</Text>
 
             <Carousel
                 layout={'default'}
                 data={categories}
                 sliderWidth={windowWidth}
                 itemWidth={SLIDE_WIDTH}
+                useScrollView={true}
                 activeSlideAlignment={'start'}
                 inactiveSlideOpacity={1}
                 inactiveSlideScale={1}
@@ -39,14 +40,14 @@ export default function DiscoverScreen() {
                         <Image source={{ uri: item.pic }}
                             style={styles.categoryImage}>
                         </Image>
-                        <Text style={{ ...styles.name, color: 'white' }}>{item.name}</Text>
+                        <Text style={{ ...styles.name, color: darkMode ? 'white' : 'black' }}>{item.name}</Text>
                     </TouchableOpacity>
                 )}
             />
 
 
             {/* ------ Source of News------ */}
-            <Text style={{ ...styles.subTitle, color: 'white', paddingTop: 10 }}>Sources</Text>
+            <Text style={{ ...styles.subTitle, color: darkMode ? 'white' : 'black', paddingTop: 10 }}>Sources</Text>
 
             <View style={styles.sources}>
                 {
