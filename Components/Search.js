@@ -1,6 +1,10 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Modal } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { NewsContext } from '../API/Context'
+import { Entypo } from "@expo/vector-icons";
+import SingleNews from './SingleNews';
+
+
 
 export default function Search() {
 
@@ -16,11 +20,14 @@ export default function Search() {
             setSearchResults([]);
             return;
         }
-
         setSearchResults(articles.filter((query) => query.title.includes(text)));
     }
 
-    console.log(searchResults)
+    const handleModal = (singleSearchResult) => {
+        setModalVisible(true);
+        setCurrentNews(singleSearchResult);
+    }
+
 
 
     return (
@@ -40,7 +47,7 @@ export default function Search() {
                     <TouchableOpacity
                         key={result.title}
                         activeOpacity={0.7}
-                    // onPress={() => handleModal(result)}
+                        onPress={() => handleModal(result)}
                     >
                         <Text
                             style={{
@@ -55,9 +62,31 @@ export default function Search() {
                 ))}
             </View>
 
-        </View>
+
+
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}
+            >
+                <TouchableOpacity
+                    onPress={() => setModalVisible(!modalVisible)}
+                    style={styles.modal}
+                >
+                    <Entypo name="circle-with-cross" size={30} color="white" />
+                </TouchableOpacity>
+                <View style={{ height: "100%", marginTop: 100 }}>
+                    <SingleNews item={currentNews} />
+                </View>
+            </Modal >
+        </View >
     )
 }
+
+
 
 
 
@@ -70,7 +99,6 @@ const styles = StyleSheet.create({
         marginTop: 8,
         marginBottom: 15
     },
-
     searchResults: {
         position: "absolute",
         zIndex: 1,
@@ -83,5 +111,12 @@ const styles = StyleSheet.create({
         margin: 2,
         shadowColor: "black",
         elevation: 5,
+    },
+
+    modal: {
+        position: 'absolute',
+        zIndex: 1,
+        right: 3,
+        marginTop: 104,
     },
 })
