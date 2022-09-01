@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "saiketdas.gonews"
     },
     "web": {
       "favicon": "./assets/favicon.png"

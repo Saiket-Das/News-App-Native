@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native'
 import { NewsContext } from '../API/Context';
 import { categories, sources } from '../API/Api'
 import Carousel from 'react-native-snap-carousel';
@@ -13,6 +13,9 @@ export default function DiscoverScreen() {
     const windowWidth = Dimensions.get("window").width;
     const SLIDE_WIDTH = Math.round(windowWidth / 3.5);
 
+
+    console.log(categories)
+
     return (
         <View style={styles.discover}>
 
@@ -23,14 +26,18 @@ export default function DiscoverScreen() {
             {/* ------ Cetagories ------ */}
             <Text style={{ ...styles.subTitle, color: darkMode ? 'white' : 'black' }}>Categories</Text>
 
+
+
+
             <Carousel
-                layout={'default'}
+                // layout={'default'}
                 data={categories}
                 sliderWidth={windowWidth}
                 itemWidth={SLIDE_WIDTH}
                 useScrollView={true}
-                activeSlideAlignment={'start'}
+                activeSlideAlignment='start'
                 inactiveSlideOpacity={1}
+                enableMomentum={false}
                 inactiveSlideScale={1}
                 renderItem={({ item, index }) => (
 
@@ -44,6 +51,8 @@ export default function DiscoverScreen() {
                     </TouchableOpacity>
                 )}
             />
+
+
 
 
             {/* ------ Source of News------ */}
@@ -60,7 +69,6 @@ export default function DiscoverScreen() {
                             <Image source={{ uri: source.pic }}
                                 style={styles.sourceImage}
                             />
-
                         </TouchableOpacity>
                     ))
                 }
@@ -89,8 +97,8 @@ const styles = StyleSheet.create({
     },
 
     categoryImage: {
-        height: '40%',
-        width: '100%',
+        width: 45,
+        height: 45,
         resizeMode: 'contain'
     },
 
@@ -100,8 +108,8 @@ const styles = StyleSheet.create({
     },
 
     category: {
-        height: 100,
-        margin: -5,
+        height: 80,
+        width: 100,
         alignItems: 'center',
         justifyContent: 'space-evenly'
     },
@@ -110,7 +118,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-around",
-        // paddingVertical: ,
     },
 
     sourceContainer: {
@@ -125,5 +132,25 @@ const styles = StyleSheet.create({
         height: "100%",
         borderRadius: 10,
         resizeMode: "cover",
+    },
+
+    // // ----
+    // categoriesContainer: {
+    //     marginVertical: 4,
+    //     padding: 10,
+    //     backgroundColor: 'white'
+    // },
+
+    // singleCategory: {
+    //     padding: 5,
+    //     alignItems: 'center',
+    //     marginRight: 30,
+    // },
+
+
+
+    categoryTitle: {
+        fontSize: 13,
+        fontWeight: '600'
     },
 })

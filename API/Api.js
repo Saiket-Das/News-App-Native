@@ -1,7 +1,7 @@
 export const categories = [
     {
         code: "",
-        pic: "https://img.icons8.com/fluent/96/000000/news.png",
+        pic: "https://img.icons8.com/3d-fluency/344/news.png",
         name: "general",
     },
     {

@@ -34,11 +34,11 @@ export default function Search() {
         <View style={{ width: '100%', position: 'relative' }}>
 
             <TextInput style={{
-                ...styles.searchText, backgroundColor: darkMode ? '#999999' : '#D3D3D3', color: 'black'
+                ...styles.searchText, backgroundColor: '#e4e4e4', color: 'black'
             }}
                 onChangeText={(text) => handleSearch(text)}
                 placeholder='Search for news'
-                placeholderTextColor={darkMode ? 'white' : 'black'}
+                placeholderTextColor='black'
             />
 
 
@@ -92,7 +92,7 @@ export default function Search() {
 
 const styles = StyleSheet.create({
     searchText: {
-        paddingVertical: 15,
+        paddingVertical: 18,
         paddingHorizontal: 15,
         borderRadius: 10,
         fontSize: 16,

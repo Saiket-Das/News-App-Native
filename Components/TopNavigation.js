@@ -10,7 +10,10 @@ export default function TopNavigation({ index, setIndex }) {
     const { fetchNews, darkMode, setDarkMode } = useContext(NewsContext);
 
     return (
-        <View style={{ ...styles.container, backgroundColor: '#87ceeb' }}>
+        <View style={{ ...styles.container, backgroundColor: '#dd0000' }}>
+
+
+            {/* --------- <DISCOVER and DARKMODE Condtion  */}
             {index === 0 ?
                 <TouchableOpacity style={styles.left}
                     onPress={() => setDarkMode(!darkMode)}>
@@ -18,39 +21,42 @@ export default function TopNavigation({ index, setIndex }) {
                         <MaterialCommunityIcons
                             name='theme-light-dark'
                             size={24}
-                            color='#007FFF'
+                            color='white'
                         />
                     </Text>
                 </TouchableOpacity>
                 :
                 <TouchableOpacity style={styles.left}
                     onPress={() => setIndex(index === 0 ? 1 : 0)}>
-                    <AntDesign name='left' size={24} color='#007FFF'></AntDesign>
-                    <Text style={{ ...styles.text, color: 'black' }}>Discover</Text>
+                    <AntDesign name='left' size={24} color='white'></AntDesign>
+                    <Text style={{ ...styles.text, color: 'white' }}>Discover</Text>
                 </TouchableOpacity >
             }
 
 
-            <Text style={{ ...styles.center, color: 'black', fontWeight: '600' }}>
+            {/* --------- HEADER TITLE (ALL NEWS and DISCOVER) Condition  */}
+            <Text style={{ ...styles.center, color: 'white', fontWeight: '600' }}>
                 {index ? 'All News' : 'Discover'}
             </Text>
 
 
+
+            {/* --------- RELOAD and ALL NEWS> Condtion  */}
             {index ?
                 <TouchableOpacity style={styles.right}
                     onPress={() => fetchNews('general')}>
                     <Text style={styles.text}>
-                        <AntDesign name='reload1' size={24} color='#007FFF'>
+                        <AntDesign name='reload1' size={24} color='white'>
                         </AntDesign>
                     </Text>
                 </TouchableOpacity>
                 :
                 <TouchableOpacity style={styles.left}
                     onPress={() => setIndex(index === 0 ? 1 : 0)}>
-                    <Text style={{ ...styles.text, color: 'black' }}>
+                    <Text style={{ ...styles.text, color: 'white' }}>
                         All News
                     </Text>
-                    <AntDesign name='right' size={24} color='#007FFF'>
+                    <AntDesign name='right' size={24} color='white'>
                     </AntDesign>
                 </TouchableOpacity>}
 
@@ -67,8 +73,7 @@ const styles = StyleSheet.create({
         paddingTop: 60,
         paddingBottom: 20,
         paddingHorizontal: 20,
-        // borderBottomColor: 'black',
-        // borderBottomWidth: 0.5,
+
     },
 
     left: {
@@ -79,11 +84,9 @@ const styles = StyleSheet.create({
     },
 
     center: {
-        // paddingBottom: 6,
         borderBottomColor: "white",
-        // borderBottomWidth: 5,
         borderRadius: 10,
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: "700",
     },
 
