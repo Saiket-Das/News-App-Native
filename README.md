@@ -7,7 +7,7 @@ Install Expo Go using this link: https://play.google.com/store/apps/details?id=h
 
 Head over to following link and scan the QR code from Expo Go app:  **https://expo.dev/@saiketdas05/news-app**
 
-### Technologies Used/Features Implemented
+### Technologies Used
 * React Native
 * Expo
 * React Navigation 
