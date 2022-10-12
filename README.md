@@ -5,13 +5,13 @@
 
 Install Expo Go using this link: https://play.google.com/store/apps/details?id=host.exp.exponent 
 
-Head over to following link and scan the QR code from Expo Go app: 
+Head over to following link and scan the QR code from Expo Go app:  **https://expo.dev/@saiketdas05/news-app**
 
-### Technologies Used/Features Implemented
+### Technologies Used
 * React Native
-* React Navigation
-* Expo 
-* Saurav Tech News Api - **"https://saurav.tech/NewsAPI/"**
+* Expo
+* React Navigation 
+* Saurav Tech News Api - **https://saurav.tech/NewsAPI/**
 
 Note: no design library is used. The entire UI of this application is built from the ground up.
 
